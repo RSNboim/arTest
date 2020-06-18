@@ -1,0 +1,151 @@
+<div class="all">
+    <div class="allStu">
+        <my-student class="class1" img="" year="" aboveavarage="" id="[]"></my-student>
+    </div>
+
+    <div class="allStu2">
+        <my-student class="class2" img="" year="" aboveavarage="" id="[]"></my-student>
+    </div>
+</div>
+<script>
+    let myTemplate = document.querySelector('.allStu')
+    let myTemplate2 = document.querySelector('.allStu2')
+    // console.log(myTemplate2);
+
+    stuArr = {}
+    stuArr.class1 = [
+        { name: 'Aron', age: 35, id: 1, year: 2020, aboveavarage: true, img: 'http://img1.jpg' },
+        { name: 'yacov', age: 20, id: 2, year: 1995, aboveavarage: false, img: 'http://img2.jpg' },
+        { name: 'shmuel', age: 15, id: 3, year: 1980, aboveavarage: true, img: 'http://img3.jpg' },
+        { name: 'avi', age: 99, id: 4, year: 2012, aboveavarage: false, img: 'http://img4.jpg' },
+        { name: 'jek', age: 2, id: 5, year: 1586, aboveavarage: false, img: 'http://img5.jpg' },
+        { name: 'uriel', age: 20, id: 6, year: 1896, aboveavarage: false, img: 'http://img6.jpg' },
+        { name: 'shimon', age: 33, id: 7, year: 6521, aboveavarage: true, img: 'http://img7.jpg' },
+        { name: 'levi', age: 44, id: 8, year: 2032, aboveavarage: true, img: 'http://img8.jpg' },
+        { name: 'ytzchak', age: 77, id: 9, year: 2000, aboveavarage: false, img: 'http://img9.jpg' },
+        { name: 'shuki', age: 88, id: 10, year: 2101, aboveavarage: false, img: 'http://img10.jpg' },
+        { name: 'shchem', age: 65, id: 11, year: 2011, aboveavarage: false, img: 'http://img11.jpg' },
+        { name: 'yoni', age: 53, id: 12, year: 1999, aboveavarage: true, img: 'http://img11.jpg' }
+    ]
+    stuArr.class2 = [
+        { name: 'Aron22', age: 35, id: 1, year: 2020, aboveavarage: true, img: 'http://img1.jpg' },
+        { name: 'yacov22', age: 20, id: 2, year: 1995, aboveavarage: false, img: 'http://img2.jpg' },
+        { name: 'shmuel22', age: 15, id: 3, year: 1980, aboveavarage: true, img: 'http://img3.jpg' },
+        { name: 'avi22', age: 99, id: 4, year: 2012, aboveavarage: false, img: 'http://img4.jpg' },
+        { name: 'jek22', age: 2, id: 5, year: 1586, aboveavarage: false, img: 'http://img5.jpg' },
+        { name: 'uriel22', age: 20, id: 6, year: 1896, aboveavarage: false, img: 'http://img6.jpg' },
+        { name: 'shimon22', age: 33, id: 7, year: 6521, aboveavarage: true, img: 'http://img7.jpg' },
+        { name: 'levi22', age: 44, id: 8, year: 2032, aboveavarage: true, img: 'http://img8.jpg' },
+        { name: 'ytzchak22', age: 77, id: 9, year: 2000, aboveavarage: false, img: 'http://img9.jpg' },
+        { name: 'shuki22', age: 88, id: 10, year: 2101, aboveavarage: false, img: 'http://img10.jpg' },
+        { name: 'shchem22', age: 65, id: 11, year: 2011, aboveavarage: false, img: 'http://img11.jpg' },
+        { name: 'yoni22', age: 53, id: 12, year: 1999, aboveavarage: true, img: 'http://img11.jpg' }
+    ]
+
+    function render(data, template) {
+        let html = ''
+        let temp = template.innerHTML;
+        let filter = /\[.*\]/g;
+        let newList = temp.match(filter)
+        for (let i = 0; i < newList.length; i++) {
+            newList[i] = newList[i].replace('[', '').replace(']', '')
+
+        }
+        data.forEach(d => {
+            newTemp = temp
+            newList.forEach(i => {
+                newTemp = newTemp.replace(`[${i}]`, d.id)
+            })
+            html += newTemp
+            newTemp = template
+        });
+        return template.innerHTML = html
+    }
+    // using web component as a template & rendering it
+    render(stuArr.class1, myTemplate)
+    render(stuArr.class2, myTemplate2)
+
+
+
+// creating a web component
+    class newComponent extends HTMLElement {
+
+
+        constructor() {
+            super()
+// creating the component variabels
+            let colors = ['red', 'yellow', 'coral', 'black', 
+            'green', 'crimson', 'cyan', 'darkgoldenrod', 'darkorange', 'darkorchid', 'deepskyblue', 'gold']
+            let aboveavarage = ''
+            let clas = this.getAttribute('class')
+            const shadow = this.attachShadow({ mode: 'open' });
+            let div = document.createElement('div')
+            let img = document.createElement('img')
+            let name = document.createElement('name')
+            let age = document.createElement('age')
+            let year = document.createElement('year')
+            let style = document.createElement('style')
+// appending the div & style to shadow(root)
+            shadow.appendChild(div)
+            shadow.appendChild(style)
+  // appending the div's direct children to div
+
+            div.appendChild(img)
+            div.appendChild(name)
+            div.appendChild(age)
+            div.appendChild(year)
+
+            let id = this.getAttribute('id')
+
+            let stu = ''
+            console.log(stu);
+
+            name.innerHTML = stu.name
+            age.innerHTML = stu.age
+            year.innerHTML = stu.year
+
+
+            for (let i in stuArr[clas]) {
+                if (stuArr[clas][i].id == id) {
+                    stu = stuArr[clas][i]
+                }
+            }
+
+            img.innerHTML = stu.img
+            name.innerHTML = `name :${stu.name}`
+            age.innerHTML = `age : ${stu.age}`
+            year.innerHTML = `year : ${stu.year}`
+// setting style dynamicly with js code
+            style.textContent = `
+            div{
+                
+                margin-top: 20px;
+                width: 170px;
+                 height: 170px;
+                display: flex;
+                flex-direction: column;
+                background:${colors[stu.id]}
+                 
+                
+            }
+            img{
+                width: 100px;
+                 height: 100px;
+            }
+            `
+            // changing the style if student is aboveavarage
+            if (stu.aboveavarage == true) {
+                div.style.color = 'blue';
+                console.log("rgergrg");
+                
+            }
+
+
+
+
+        }
+
+
+    }
+    customElements.define('my-student', newComponent)
+</script>

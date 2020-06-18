@@ -1,0 +1,68 @@
+<!-- my first list display -->
+<div class='wrapper' >
+    <label>name :</label><span>[name]</span><br>
+    <label>age :</label><span>[age]</span><br>
+    <label>year :</label><span>[year]</span><br>
+    <label>aboveavarage :</label><span>[aboveavarage]</span><br><br><br><br><br>
+</div>
+<!-- my second list display -->
+<div class='wrapper2' style="border: rgb(111, 0, 255);">
+    <label>age :</label><span>[age]</span><br>
+    <label>name :</label><span>[name]</span><br>
+    <label>aboveavarage :</label><span>[aboveavarage]</span><br>
+    <label>id :</label><span>[id]</span><br>
+    <label>year :</label><span>[year]</span><br><br>
+</div>
+<style >
+    /* different color for every display */
+.wrapper{
+     color: rgb(0, 0, 0);}
+     .wrapper2{
+     color:grey;}
+     </style>
+<script>
+    
+    let myTemplate = document.querySelector('.wrapper');
+    let myTemplate2 = document.querySelector('.wrapper2');
+    // data base
+    let students = [
+        { name: 'Aron', age: 35, id: 1, year: 2020, aboveavarage: true },
+        { name: 'yacov', age: 20, id: 2, year: 1995, aboveavarage: false },
+        { name: 'shmuel', age: 15, id: 3, year: 1980, aboveavarage: true },
+        { name: 'avi', age: 99, id: 4, year: 2012, aboveavarage: false },
+        { name: 'jek', age: 2, id: 5, year: 1586, aboveavarage: false },
+        { name: 'uriel', age: 20, id: 6, year: 1896, aboveavarage: false },
+        { name: 'shimon', age: 33, id: 7, year: 6521, aboveavarage: true },
+        { name: 'levi', age: 44, id: 8, year: 2032, aboveavarage: true },
+        { name: 'ytzchak', age: 77, id: 9, year: 2000, aboveavarage: false },
+        { name: 'shuki', age: 88, id: 10, year: 2101, aboveavarage: false },
+        { name: 'shchem', age: 65, id: 11, year: 2011, aboveavarage: false },
+        { name: 'yoni', age: 53, id: 12, year: 1999, aboveavarage: true }
+    ]
+    function render(data, template) {
+        // declered a string that Will contain the rendering outcome
+        let html = ''
+        let temp = template.innerHTML;
+    //    filtering the seperators from template
+        let filter = /\[.*\]/g;
+        let newList = temp.match(filter)
+        for (let i = 0; i < newList.length; i++) {
+            newList[i] = newList[i].replace('[', '').replace(']', '')
+        }
+// inserting the data 
+        data.forEach(d => {
+            newTemp = temp
+            newList.forEach(i => {
+                newTemp = newTemp.replace(`[${i}]`, d[i])
+            })
+            html += newTemp
+            newTemp = template
+        });
+        // in this case the data was send to 1st display.
+        // we may use the same code to send it to 2nd display  
+        return myTemplate.innerHTML = html
+        // console.log(html);
+
+    }
+    render(students, myTemplate)
+</script>

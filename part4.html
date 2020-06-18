@@ -1,0 +1,185 @@
+<div class="all" style="display: flex;">
+    <div class="myStu">
+        <is-component style="margin: auto;"></is-component>
+    </div>
+    ​
+    <div class="myStu" style="margin: auto;">
+        <is-component></is-component>
+    </div>
+    ​
+</div>
+​
+​
+<script>
+
+    let number = Math.floor(Math.random() * 13);
+    console.log(number);
+
+    let colors = ['red', 'yellow', 'coral', 'black', 'green', 'crimson', 'cyan', 'darkgoldenrod', 'darkorange', 'darkorchid', 'deepskyblue', 'gold']
+    console.log(colors[number]);
+    stuArr = {}
+
+
+    stuArr.class1 = [
+        { name: 'aron', age: 35, id: 1, year: 2020, aboveavarage: true, img: 'http://img1.jpg' },
+        { name: 'yacov', age: 20, id: 2, year: 1995, aboveavarage: false, img: 'http://img2.jpg' },
+        { name: 'shmuel', age: 15, id: 3, year: 1980, aboveavarage: true, img: 'http://img3.jpg' },
+        { name: 'avi', age: 99, id: 4, year: 2012, aboveavarage: false, img: 'http://img4.jpg' },
+        { name: 'jek', age: 2, id: 5, year: 1586, aboveavarage: false, img: 'http://img5.jpg' },
+        { name: 'uriel', age: 20, id: 6, year: 1896, aboveavarage: false, img: 'http://img6.jpg' },
+        { name: 'shimon', age: 33, id: 7, year: 6521, aboveavarage: true, img: 'http://img7.jpg' },
+        { name: 'levi', age: 44, id: 8, year: 2032, aboveavarage: true, img: 'http://img8.jpg' },
+        { name: 'ytzchak', age: 77, id: 9, year: 2000, aboveavarage: false, img: 'http://img9.jpg' },
+        { name: 'shuki', age: 88, id: 10, year: 2101, aboveavarage: false, img: 'http://img10.jpg' },
+        { name: 'shchem', age: 65, id: 11, year: 2011, aboveavarage: false, img: 'http://img11.jpg' },
+        { name: 'yoni', age: 53, id: 12, year: 1999, aboveavarage: true, img: 'http://img11.jpg' }
+    ]
+
+    stuArr.class2 = [
+        { name: 'aron22', age: 35, id: 1, year: 2020, aboveavarage: true, img: 'http://img1.jpg' },
+        { name: 'yacov22', age: 20, id: 2, year: 1995, aboveavarage: false, img: 'http://img2.jpg' },
+        { name: 'shmuel22', age: 15, id: 3, year: 1980, aboveavarage: true, img: 'http://img3.jpg' },
+        { name: 'avi22', age: 99, id: 4, year: 2012, aboveavarage: false, img: 'http://img4.jpg' },
+        { name: 'jek22', age: 2, id: 5, year: 1586, aboveavarage: false, img: 'http://img5.jpg' },
+        { name: 'uriel22', age: 20, id: 6, year: 1896, aboveavarage: false, img: 'http://img6.jpg' },
+        { name: 'shimon22', age: 33, id: 7, year: 6521, aboveavarage: true, img: 'http://img7.jpg' },
+        { name: 'levi22', age: 44, id: 8, year: 2032, aboveavarage: true, img: 'http://img8.jpg' },
+        { name: 'ytzchak22', age: 77, id: 9, year: 2000, aboveavarage: false, img: 'http://img9.jpg' },
+        { name: 'shuki22', age: 88, id: 10, year: 2101, aboveavarage: false, img: 'http://img10.jpg' },
+        { name: 'shem22', age: 65, id: 11, year: 2011, aboveavarage: false, img: 'http://img11.jpg' },
+        { name: 'yoni22', age: 53, id: 12, year: 1999, aboveavarage: true, img: 'http://img11.jpg' }
+    ]
+
+    stuArr.class3 = [
+        { name: 'aron33', age: 35, id: 1, year: 2020, aboveavarage: true, img: 'http://img1.jpg' },
+        { name: 'yacov33', age: 20, id: 2, year: 1995, aboveavarage: false, img: 'http://img2.jpg' },
+        { name: 'shmuel33', age: 15, id: 3, year: 1980, aboveavarage: true, img: 'http://img3.jpg' },
+        { name: 'avi33', age: 99, id: 4, year: 2012, aboveavarage: false, img: 'http://img4.jpg' },
+        { name: 'jek33', age: 2, id: 5, year: 1586, aboveavarage: false, img: 'http://img5.jpg' },
+        { name: 'uriel33', age: 20, id: 6, year: 1896, aboveavarage: false, img: 'http://img6.jpg' },
+        { name: 'shimon33', age: 33, id: 7, year: 6521, aboveavarage: true, img: 'http://img7.jpg' },
+        { name: 'levi33', age: 44, id: 8, year: 2032, aboveavarage: true, img: 'http://img8.jpg' },
+        { name: 'ytzchak33', age: 77, id: 9, year: 2000, aboveavarage: false, img: 'http://img9.jpg' },
+        { name: 'shuki33', age: 88, id: 10, year: 2101, aboveavarage: false, img: 'http://img10.jpg' },
+        { name: 'shchem33', age: 65, id: 11, year: 2011, aboveavarage: false, img: 'http://img11.jpg' },
+        { name: 'yoni33', age: 53, id: 12, year: 1999, aboveavarage: true, img: 'http://img11.jpg' }
+    ]
+
+    stuArr.class4 = [
+        { name: 'aron44', age: 35, id: 1, year: 2020, aboveavarage: true, img: 'http://img1.jpg' },
+        { name: 'yacov44', age: 20, id: 2, year: 1995, aboveavarage: false, img: 'http://img2.jpg' },
+        { name: 'shmuel44', age: 15, id: 3, year: 1980, aboveavarage: true, img: 'http://img3.jpg' },
+        { name: 'avi44', age: 99, id: 4, year: 2012, aboveavarage: false, img: 'http://img4.jpg' },
+        { name: 'jek44', age: 2, id: 5, year: 1586, aboveavarage: false, img: 'http://img5.jpg' },
+        { name: 'uriel44', age: 20, id: 6, year: 1896, aboveavarage: false, img: 'http://img6.jpg' },
+        { name: 'shimon44', age: 33, id: 7, year: 6521, aboveavarage: true, img: 'http://img7.jpg' },
+        { name: 'levi44', age: 44, id: 8, year: 2032, aboveavarage: true, img: 'http://img8.jpg' },
+        { name: 'ytzchak44', age: 77, id: 9, year: 2000, aboveavarage: false, img: 'http://img9.jpg' },
+        { name: 'shuki44', age: 88, id: 10, year: 2101, aboveavarage: false, img: 'http://img10.jpg' },
+        { name: 'shchem44', age: 65, id: 11, year: 2011, aboveavarage: false, img: 'http://img11.jpg' },
+        { name: 'yoni44', age: 53, id: 12, year: 1999, aboveavarage: true, img: 'http://img11.jpg' }
+    ]
+
+    class isComp extends HTMLElement {
+        constructor() {
+            super()
+
+            const shadow = this.attachShadow({ mode: 'open' });
+
+            this.div = document.createElement('div')
+            this.div.className = 'myDiv'
+            shadow.appendChild(this.div)
+// creating select
+            this.select = document.createElement('select')
+            this.div.appendChild(this.select)
+
+            let option1 = document.createElement('option')
+            let option2 = document.createElement('option')
+            let option3 = document.createElement('option')
+            let option4 = document.createElement('option')
+            option1.innerHTML = 'class1'
+            option2.innerHTML = 'class2'
+            option3.innerHTML = 'class3'
+            option4.innerHTML = 'class4'
+            this.select.appendChild(option1)
+            this.select.appendChild(option2)
+            this.select.appendChild(option3)
+            this.select.appendChild(option4)
+// creating the result div
+            let div2 = document.createElement('div')
+            div2.className = 'divStu'
+            shadow.appendChild(div2)
+
+            let style = document.createElement('style')
+            shadow.appendChild(style)
+
+
+
+
+
+// creating stu template
+            let template = `<div style="background-color: ${colors[number]};" >
+               <img>[img]<img/><br>
+               <label>name :<label><span>[name]</span><br>
+                <label>age :<label><span>[age]</span><br>
+                    <label>year :<label><span>[year]</span><br>
+                        <label>aboveavarage :<label><span>[aboveavarage]</span></div><br><br>`
+
+
+
+            function render(data, template) {
+                let html = ''
+                let temp = template
+
+
+
+                let filter = /\[.*\]/g;
+                let newList = temp.match(filter)
+
+
+
+                for (let i = 0; i < newList.length; i++) {
+                    newList[i] = newList[i].replace('[', '').replace(']', '')
+
+                }
+
+                data.forEach(d => {
+                    let newTemp = temp
+                    newList.forEach(i => {
+
+                        newTemp = newTemp.replace(`[${i}]`, d[i])
+                    })
+                    html += newTemp
+                    newTemp = template
+                });
+
+                return html
+            }
+
+
+
+            console.log(this.select);
+// binding render to event
+            this.select.onchange = ev => {
+                div2.innerHTML = render(stuArr[this.select.value], template)
+            }
+
+
+
+
+        }
+    }
+
+    customElements.define('is-component', isComp)
+</script>
+​
+​
+​
+​
+​
+​
+​
+​
+</body>
+
+</html>

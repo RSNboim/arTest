@@ -1,0 +1,112 @@
+<div>
+
+
+    <my-student class="" img="" year="" aboveavarage="" id="1"></my-student>
+    <my-student class="" img="" year="" aboveavarage="" id="2"></my-student>
+    <my-student class="" img="" year="" aboveavarage="" id="3"></my-student>
+    <my-student class="" img="" year="" aboveavarage="" id="4"></my-student>
+    <my-student class="" img="" year="" aboveavarage="" id="5"></my-student>
+    <my-student class="" img="" year="" aboveavarage="" id="6"></my-student>
+    <my-student class="" img="" year="" aboveavarage="" id="7"></my-student>
+    <my-student class="" img="" year="" aboveavarage="" id="8"></my-student>
+    <my-student class="" img="" year="" aboveavarage="" id="9"></my-student>
+    <my-student class="" img="" year="" aboveavarage="" id="10"></my-student>
+    <my-student class="" img="" year="" aboveavarage="" id="11"></my-student>
+    <my-student class="" img="" year="" aboveavarage="" id="12"></my-student>
+</div>
+
+
+
+
+<script>
+    let students = [
+        { name: 'Aron', age: 35, id: 1, year: 2020, aboveavarage: true, img: 'http://img1.jpg' },
+        { name: 'yacov', age: 20, id: 2, year: 1995, aboveavarage: false, img: 'http://img2.jpg' },
+        { name: 'shmuel', age: 15, id: 3, year: 1980, aboveavarage: true, img: 'http://img3.jpg' },
+        { name: 'avi', age: 99, id: 4, year: 2012, aboveavarage: false, img: 'http://img4.jpg' },
+        { name: 'jek', age: 2, id: 5, year: 1586, aboveavarage: false, img: 'http://img5.jpg' },
+        { name: 'uriel', age: 20, id: 6, year: 1896, aboveavarage: false, img: 'http://img6.jpg' },
+        { name: 'shimon', age: 33, id: 7, year: 6521, aboveavarage: true, img: 'http://img7.jpg' },
+        { name: 'levi', age: 44, id: 8, year: 2032, aboveavarage: true, img: 'http://img8.jpg' },
+        { name: 'ytzchak', age: 77, id: 9, year: 2000, aboveavarage: false, img: 'http://img9.jpg' },
+        { name: 'shuki', age: 88, id: 10, year: 2101, aboveavarage: false, img: 'http://img10.jpg' },
+        { name: 'shchem', age: 65, id: 11, year: 2011, aboveavarage: false, img: 'http://img11.jpg' },
+        { name: 'yoni', age: 53, id: 12, year: 1999, aboveavarage: true, img: 'http://img11.jpg' }
+    ]
+
+
+
+
+
+// creating web component
+    class newComponent extends HTMLElement {
+        constructor() {
+            super()
+            let colors = ['red', 'yellow', 'coral', 'black', 'green',
+                'crimson', 'cyan', 'darkgoldenrod', 'darkorange', 'darkorchid',
+                'deepskyblue', 'gold']
+            let aboveavarage = ''
+            // creating shadow & attaching the div to it
+            const shadow = this.attachShadow({ mode: 'open' });
+            let div = document.createElement('div')
+            let img = document.createElement('img')
+            let name = document.createElement('name')
+            let age = document.createElement('age')
+            let year = document.createElement('year')
+            let style = document.createElement('style')
+            shadow.appendChild(div)
+            shadow.appendChild(style)
+        //    appending direct children to div
+            div.appendChild(img)
+            div.appendChild(name)
+            div.appendChild(age)
+            div.appendChild(year)
+            let id = this.getAttribute('id')
+            let stu = ''
+            // console.log(stu);
+
+            name.innerHTML = stu.name
+            age.innerHTML = stu.age
+            year.innerHTML = stu.year
+            // setting the appropriate student from data by its id 
+            for (let i in students) {
+                if (students[i].id == id) {
+                    stu = students[i]
+                }
+            }
+            name.innerHTML = stu.name
+            age.innerHTML = stu.age
+            year.innerHTML = stu.year
+            img.innerHTML = stu.img
+            name.innerHTML = `name :${stu.name}`
+            age.innerHTML = `age : ${stu.age}`
+            year.innerHTML = `year : ${stu.year}`
+            // setting style dynamicly with jsCode
+            style.textContent = `
+        div{
+                        margin-right: 20px;
+            width: 170px;
+             height: 170px;
+            display: flex;
+            flex-direction: column;
+            background:${colors[stu.id]}
+             
+            
+        }
+        img{
+            width: 100px;
+             height: 100px;
+        }
+        `       
+             // changing the style if student is aboveavarage
+
+            if (stu.aboveavarage == true) {
+                div.style.color = 'blue';
+            }
+
+        }
+    }
+
+
+    customElements.define('my-student', newComponent)
+</script>
